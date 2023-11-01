@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(MyApp());
 }
@@ -77,7 +76,7 @@ class RideEvee extends StatelessWidget {
                   child: Column(
                     children: [
                       TabBar(
-                        tabs: [
+                        tabs: const [
                           Tab(icon:Icon(Icons.map),text: 'Outstation Trip'),
                           Tab(icon:Icon(Icons.bus_alert),text: 'Local Trip'),
                           Tab(icon:Icon(Icons.airplane_ticket),text: 'Airport Transfer'),
@@ -105,6 +104,7 @@ class RideEvee extends StatelessWidget {
                                     ],
                                     labelColor: Colors.green,
                                     unselectedLabelColor: Colors.white,
+
                                     indicator: BoxDecoration(color: Colors.white,
                                         borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(20),
@@ -115,103 +115,124 @@ class RideEvee extends StatelessWidget {
                                     height: 200,
                                     child: TabBarView(
                                       children: [
-                                        Container(
-                                          width: 398,
-                                          height: 405,
-                                          decoration: ShapeDecoration(
-                                            color: Colors.white,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.only(
-                                                topRight: Radius.circular(40),
-                                                bottomLeft: Radius.circular(40),
-                                                bottomRight: Radius.circular(40),
-                                              ),
-                                            ),
-                                          ),
-                                          child:
-                                          ListView.builder(
-                                            shrinkWrap: true,
-                                            itemCount: 4,
-                                            itemBuilder: (BuildContext context, int index) {
-                                              List<String> titles = ['Pick-up City', 'Destination', 'Pick-up Date', 'Time'];
-                                              List<String> prices = ['Faizabad, Utter Pradesh', 'Lucknow, Utter Pradesh', '20/10/2023', '04:45 PM'];
-                                              List<Icon> cornerTexts = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
-                                              List<String> imagePaths = [
-                                                'assets/Image/Rectangle 1422.png',
-                                                'assets/Image/Flag.png',
-                                                'assets/Image/Frame.png',
-                                                'assets/Image/Watch.png'
-                                              ];
-
-                                              return Card(
-                                                child: ListTile(
-                                                  leading: CircleAvatar(
-                                                    radius: 30,
-                                                    backgroundImage: AssetImage(imagePaths[index]),
-                                                  ),
-                                                  title: Text(titles[index]),
-                                                  subtitle: Column(
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                    children: [
-                                                      Text(prices[index],
-                                                          style: TextStyle(
-                                                              fontSize: 12, color: Colors.black87)),
-                                                    ],
+                                        ListView(
+                                          children: [
+                                            Container(
+                                              width: 398,
+                                              height: 405,
+                                              decoration: ShapeDecoration(
+                                                color: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.only(
+                                                    topRight: Radius.circular(40),
+                                                    bottomLeft: Radius.circular(40),
+                                                    bottomRight: Radius.circular(40),
                                                   ),
                                                 ),
-                                              );
-                                            },
-                                          ),
+                                              ),
+                                              child:
+                                              ListView.builder(
+                                                shrinkWrap: true,
+                                                itemCount: 4,
+                                                itemBuilder: (BuildContext context, int index) {
+                                                  List<String> titles = ['Pick-up City', 'Destination', 'Pick-up Date', 'Time'];
+                                                  List<String> prices = ['Faizabad, Utter Pradesh', 'Lucknow, Utter Pradesh', '20/10/2023', '04:45 PM'];
+                                                  List<Icon> cornerIcon = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
+                                                  List<String> imagePaths = [
+                                                    'assets/Image/Rectangle 1422.png',
+                                                    'assets/Image/Flag.png',
+                                                    'assets/Image/Frame.png',
+                                                    'assets/Image/Watch.png'
+                                                  ];
 
-                                        ),
-                                        Container(
-                                          width: 398,
-                                          height: 405,
-                                          decoration: ShapeDecoration(
-                                            color: Colors.white,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(40),
-                                                bottomLeft: Radius.circular(40),
-                                                bottomRight: Radius.circular(40),
+                                                  return Card(color: Color(0xFFD5F2C8),shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.only(
+                                                      topLeft: Radius.circular(40),
+                                                      topRight: Radius.circular(40),
+                                                      bottomLeft: Radius.circular(40),
+                                                      bottomRight: Radius.circular(40),
+                                                    ),
+                                                  ),
+                                                    child: ListTile(
+                                                      leading: CircleAvatar(
+                                                        radius: 30,
+                                                        backgroundImage: AssetImage(imagePaths[index]),
+                                                      ),
+                                                      title: Text(titles[index]),
+                                                      subtitle: Column(
+                                                        crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                        children: [
+                                                          Text(prices[index],
+                                                              style: TextStyle(
+                                                                  fontSize: 12, color: Colors.black87)),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
                                               ),
                                             ),
-                                          ), child:
-                                        ListView.builder(
-                                          shrinkWrap: true,
-                                          itemCount: 4,
-                                          itemBuilder: (BuildContext context, int index) {
-                                            List<String> titles = ['Pick-up City', 'Destination', 'Pick-up Date', 'Time'];
-                                            List<String> prices = ['Faizabad, Utter Pradesh', 'Lucknow, Utter Pradesh', '20/10/2023', '04:45 PM'];
-                                            List<Icon> cornerTexts = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
-                                            List<String> imagePaths = [
-                                              'assets/Image/Rectangle 1422.png',
-                                              'assets/Image/Flag.png',
-                                              'assets/Image/Frame.png',
-                                              'assets/Image/Watch.png'
-                                            ];
-
-                                            return Card(
-                                              child: ListTile(
-                                                leading: CircleAvatar(
-                                                  radius: 30,
-                                                  backgroundImage: AssetImage(imagePaths[index]),
-                                                ),
-                                                title: Text(titles[index]),
-                                                subtitle: Column(
-                                                  crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(prices[index],
-                                                        style: TextStyle(
-                                                            fontSize: 12, color: Colors.black87)),
-                                                  ],
-                                                ),
-                                              ),
-                                            );
-                                          },
+                                          ],
                                         ),
+                                        ListView(
+                                          children: [
+                                            Container(
+                                              width: 398,
+                                              height: 405,
+                                              decoration: ShapeDecoration(
+                                                color: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.only(
+                                                    topLeft: Radius.circular(40),
+                                                    bottomLeft: Radius.circular(40),
+                                                    bottomRight: Radius.circular(40),
+                                                  ),
+                                                ),
+                                              ), child:
+                                            ListView.builder(
+                                              shrinkWrap: true,
+                                              itemCount: 3,
+                                              itemBuilder: (BuildContext context, int index) {
+                                                List<String> titles = ['Pick-up City', 'Destination','Time'];
+                                                List<String> prices = ['Faizabad, Utter Pradesh', '20/10/2023', '04:45 PM'];
+                                                List<Icon> cornerTexts = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
+                                                List<String> imagePaths = [
+                                                  'assets/Image/Rectangle 1422.png',
+                                                  'assets/Image/Flag.png',
+                                                  'assets/Image/Watch.png'
+                                                ];
+
+                                                return Card(color: Color(0xFFD5F2C8),shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.only(
+                                                    topLeft: Radius.circular(40),
+                                                    topRight: Radius.circular(40),
+                                                    bottomLeft: Radius.circular(40),
+                                                    bottomRight: Radius.circular(40),
+                                                  ),
+                                                ),
+                                                  child: ListTile(
+                                                    leading: CircleAvatar(
+                                                      radius: 30,
+                                                      backgroundImage: AssetImage(imagePaths[index]),
+                                                    ),
+                                                    title: Text(titles[index]),
+                                                    subtitle: Column(
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                      children: [
+                                                        Text(prices[index],
+                                                            style: TextStyle(
+                                                                fontSize: 12, color: Colors.black87)),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ),
+
+                                            ),
+                                          ],
                                         )
                                       ],
                                     ),
@@ -236,103 +257,125 @@ class RideEvee extends StatelessWidget {
                                     height: 200,
                                     child: TabBarView(
                                       children: [
-                                        Container(
-                                          width: 398,
-                                          height: 405,
-                                          decoration: ShapeDecoration(
-                                            color: Colors.white,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.only(
-                                                topRight: Radius.circular(40),
-                                                bottomLeft: Radius.circular(40),
-                                                bottomRight: Radius.circular(40),
-                                              ),
-                                            ),
-                                          ),
-                                          child:
-                                          ListView.builder(
-                                            shrinkWrap: true,
-                                            itemCount: 4,
-                                            itemBuilder: (BuildContext context, int index) {
-                                              List<String> titles = ['Pick-up City', 'Destination', 'Pick-up Date', 'Time'];
-                                              List<String> prices = ['Faizabad, Utter Pradesh', 'Lucknow, Utter Pradesh', '20/10/2023', '04:45 PM'];
-                                              List<Icon> cornerTexts = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
-                                              List<String> imagePaths = [
-                                                'assets/Image/Rectangle 1422.png',
-                                                'assets/Image/Flag.png',
-                                                'assets/Image/Frame.png',
-                                                'assets/Image/Watch.png'
-                                              ];
-
-                                              return Card(
-                                                child: ListTile(
-                                                  leading: CircleAvatar(
-                                                    radius: 30,
-                                                    backgroundImage: AssetImage(imagePaths[index]),
-                                                  ),
-                                                  title: Text(titles[index]),
-                                                  subtitle: Column(
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                    children: [
-                                                      Text(prices[index],
-                                                          style: TextStyle(
-                                                              fontSize: 12, color: Colors.black87)),
-                                                    ],
+                                        ListView(
+                                          children: [
+                                            Container(
+                                              width: 398,
+                                              height: 405,
+                                              decoration: ShapeDecoration(
+                                                color: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.only(
+                                                    topRight: Radius.circular(40),
+                                                    bottomLeft: Radius.circular(40),
+                                                    bottomRight: Radius.circular(40),
                                                   ),
                                                 ),
-                                              );
-                                            },
-                                          ),
-
-                                        ),
-                                        Container(
-                                          width: 398,
-                                          height: 405,
-                                          decoration: ShapeDecoration(
-                                            color: Colors.white,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(40),
-                                                bottomLeft: Radius.circular(40),
-                                                bottomRight: Radius.circular(40),
                                               ),
+                                              child:
+                                              ListView.builder(
+                                                shrinkWrap: true,
+                                                itemCount: 4,
+                                                itemBuilder: (BuildContext context, int index) {
+                                                  List<String> titles = ['Pick-up City', 'Destination', 'Pick-up Date', 'Time'];
+                                                  List<String> prices = ['Faizabad, Utter Pradesh', 'Lucknow, Utter Pradesh', '20/10/2023', '04:45 PM'];
+                                                  List<Icon> cornerTexts = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
+                                                  List<String> imagePaths = [
+                                                    'assets/Image/Rectangle 1422.png',
+                                                    'assets/Image/Flag.png',
+                                                    'assets/Image/Frame.png',
+                                                    'assets/Image/Watch.png'
+                                                  ];
+
+                                                  return Card(color: Color(0xFFD5F2C8),shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.only(
+                                                      topLeft: Radius.circular(40),
+                                                      topRight: Radius.circular(40),
+                                                      bottomLeft: Radius.circular(40),
+                                                      bottomRight: Radius.circular(40),
+                                                    ),
+                                                  ),
+                                                    child: ListTile(
+                                                      leading: CircleAvatar(
+                                                        radius: 30,
+                                                        backgroundImage: AssetImage(imagePaths[index]),
+                                                      ),
+                                                      title: Text(titles[index]),
+                                                      subtitle: Column(
+                                                        crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                        children: [
+                                                          Text(prices[index],
+                                                              style: TextStyle(
+                                                                  fontSize: 12, color: Colors.black87)),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+
                                             ),
-                                          ), child:
-                                        ListView.builder(
-                                          shrinkWrap: true,
-                                          itemCount: 4,
-                                          itemBuilder: (BuildContext context, int index) {
-                                            List<String> titles = ['Pick-up City', 'Destination', 'Pick-up Date', 'Time'];
-                                            List<String> prices = ['Faizabad, Utter Pradesh', 'Lucknow, Utter Pradesh', '20/10/2023', '04:45 PM'];
-                                            List<Icon> cornerTexts = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
-                                            List<String> imagePaths = [
-                                              'assets/Image/Rectangle 1422.png',
-                                              'assets/Image/Flag.png',
-                                              'assets/Image/Frame.png',
-                                              'assets/Image/Watch.png'
-                                            ];
-
-                                            return Card(
-                                              child: ListTile(
-                                                leading: CircleAvatar(
-                                                  radius: 30,
-                                                  backgroundImage: AssetImage(imagePaths[index]),
-                                                ),
-                                                title: Text(titles[index]),
-                                                subtitle: Column(
-                                                  crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(prices[index],
-                                                        style: TextStyle(
-                                                            fontSize: 12, color: Colors.black87)),
-                                                  ],
-                                                ),
-                                              ),
-                                            );
-                                          },
+                                          ],
                                         ),
+                                        ListView(
+                                          children: [
+                                            Container(
+                                              width: 398,
+                                              height: 405,
+                                              decoration: ShapeDecoration(
+                                                color: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.only(
+                                                    topLeft: Radius.circular(40),
+                                                    bottomLeft: Radius.circular(40),
+                                                    bottomRight: Radius.circular(40),
+                                                  ),
+                                                ),
+                                              ), child:
+                                            ListView.builder(
+                                              shrinkWrap: true,
+                                              itemCount: 4,
+                                              itemBuilder: (BuildContext context, int index) {
+                                                List<String> titles = ['Pick-up City', 'Destination', 'Pick-up Date', 'Time'];
+                                                List<String> prices = ['Faizabad, Utter Pradesh', 'Lucknow, Utter Pradesh', '20/10/2023', '04:45 PM'];
+                                                List<Icon> cornerTexts = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
+                                                List<String> imagePaths = [
+                                                  'assets/Image/Rectangle 1422.png',
+                                                  'assets/Image/Flag.png',
+                                                  'assets/Image/Frame.png',
+                                                  'assets/Image/Watch.png'
+                                                ];
+
+                                                return Card(color: Color(0xFFD5F2C8),shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.only(
+                                                    topLeft: Radius.circular(40),
+                                                    topRight: Radius.circular(40),
+                                                    bottomLeft: Radius.circular(40),
+                                                    bottomRight: Radius.circular(40),
+                                                  ),
+                                                ),
+                                                  child: ListTile(
+                                                    leading: CircleAvatar(
+                                                      radius: 30,
+                                                      backgroundImage: AssetImage(imagePaths[index]),
+                                                    ),
+                                                    title: Text(titles[index]),
+                                                    subtitle: Column(
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                      children: [
+                                                        Text(prices[index],
+                                                            style: TextStyle(
+                                                                fontSize: 12, color: Colors.black87)),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                            ),
+                                          ],
                                         )
                                       ],
                                     ),
@@ -356,103 +399,125 @@ class RideEvee extends StatelessWidget {
                                     height: 200,
                                     child: TabBarView(
                                       children: [
-                                        Container(
-                                          width: 398,
-                                          height: 405,
-                                          decoration: ShapeDecoration(
-                                            color: Colors.white,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.only(
-                                                topRight: Radius.circular(40),
-                                                bottomLeft: Radius.circular(40),
-                                                bottomRight: Radius.circular(40),
-                                              ),
-                                            ),
-                                          ),
-                                          child:
-                                          ListView.builder(
-                                            shrinkWrap: true,
-                                            itemCount: 4,
-                                            itemBuilder: (BuildContext context, int index) {
-                                              List<String> titles = ['Pick-up City', 'Destination', 'Pick-up Drop Address', 'Time'];
-                                              List<String> prices = ['Faizabad, Utter Pradesh', 'Lucknow, Utter Pradesh', '20/10/2023', '04:45 PM'];
-                                              List<Icon> cornerTexts = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
-                                              List<String> imagePaths = [
-                                                'assets/Image/Rectangle 1422.png',
-                                                'assets/Image/Flag.png',
-                                                'assets/Image/Frame.png',
-                                                'assets/Image/Watch.png'
-                                              ];
-
-                                              return Card(
-                                                child: ListTile(
-                                                  leading: CircleAvatar(
-                                                    radius: 30,
-                                                    backgroundImage: AssetImage(imagePaths[index]),
-                                                  ),
-                                                  title: Text(titles[index]),
-                                                  subtitle: Column(
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                    children: [
-                                                      Text(prices[index],
-                                                          style: TextStyle(
-                                                              fontSize: 12, color: Colors.black87)),
-                                                    ],
+                                        ListView(
+                                          children: [
+                                            Container(
+                                              width: 398,
+                                              height: 405,
+                                              decoration: ShapeDecoration(
+                                                color: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.only(
+                                                    topRight: Radius.circular(40),
+                                                    bottomLeft: Radius.circular(40),
+                                                    bottomRight: Radius.circular(40),
                                                   ),
                                                 ),
-                                              );
-                                            },
-                                          ),
-
-                                        ),
-                                        Container(
-                                          width: 398,
-                                          height: 405,
-                                          decoration: ShapeDecoration(
-                                            color: Colors.white,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(40),
-                                                bottomLeft: Radius.circular(40),
-                                                bottomRight: Radius.circular(40),
                                               ),
+                                              child:
+                                              ListView.builder(
+                                                shrinkWrap: true,
+                                                itemCount: 4,
+                                                itemBuilder: (BuildContext context, int index) {
+                                                  List<String> titles = ['Pick-up City', 'Destination', 'Pick-up Drop Address', 'Time'];
+                                                  List<String> prices = ['Faizabad, Utter Pradesh', 'Lucknow, Utter Pradesh', '20/10/2023', '04:45 PM'];
+                                                  List<Icon> cornerTexts = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
+                                                  List<String> imagePaths = [
+                                                    'assets/Image/Rectangle 1422.png',
+                                                    'assets/Image/Flag.png',
+                                                    'assets/Image/Frame.png',
+                                                    'assets/Image/Watch.png'
+                                                  ];
+
+                                                  return Card(color: Color(0xFFD5F2C8),shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.only(
+                                                      topLeft: Radius.circular(40),
+                                                      topRight: Radius.circular(40),
+                                                      bottomLeft: Radius.circular(40),
+                                                      bottomRight: Radius.circular(40),
+                                                    ),
+                                                  ),
+                                                    child: ListTile(
+                                                      leading: CircleAvatar(
+                                                        radius: 30,
+                                                        backgroundImage: AssetImage(imagePaths[index]),
+                                                      ),
+                                                      title: Text(titles[index]),
+                                                      subtitle: Column(
+                                                        crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                        children: [
+                                                          Text(prices[index],
+                                                              style: TextStyle(
+                                                                  fontSize: 12, color: Colors.black87)),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+
                                             ),
-                                          ), child:
-                                        ListView.builder(
-                                          shrinkWrap: true,
-                                          itemCount: 4,
-                                          itemBuilder: (BuildContext context, int index) {
-                                            List<String> titles = ['Pick-up City', 'Destination', 'Pick-up Drop Address', 'Time'];
-                                            List<String> prices = ['Faizabad, Utter Pradesh', 'Lucknow, Utter Pradesh', '20/10/2023', '04:45 PM'];
-                                            List<Icon> cornerTexts = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
-                                            List<String> imagePaths = [
-                                              'assets/Image/Rectangle 1422.png',
-                                              'assets/Image/Flag.png',
-                                              'assets/Image/Frame.png',
-                                              'assets/Image/Watch.png'
-                                            ];
-
-                                            return Card(
-                                              child: ListTile(
-                                                leading: CircleAvatar(
-                                                  radius: 30,
-                                                  backgroundImage: AssetImage(imagePaths[index]),
-                                                ),
-                                                title: Text(titles[index]),
-                                                subtitle: Column(
-                                                  crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(prices[index],
-                                                        style: TextStyle(
-                                                            fontSize: 12, color: Colors.black87)),
-                                                  ],
-                                                ),
-                                              ),
-                                            );
-                                          },
+                                          ],
                                         ),
+                                        ListView(
+                                          children: [
+                                            Container(
+                                              width: 398,
+                                              height: 405,
+                                              decoration: ShapeDecoration(
+                                                color: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.only(
+                                                    topLeft: Radius.circular(40),
+                                                    bottomLeft: Radius.circular(40),
+                                                    bottomRight: Radius.circular(40),
+                                                  ),
+                                                ),
+                                              ), child:
+                                            ListView.builder(
+                                              shrinkWrap: true,
+                                              itemCount: 4,
+                                              itemBuilder: (BuildContext context, int index) {
+                                                List<String> titles = ['Pick-up City', 'Destination', 'Pick-up Drop Address', 'Time'];
+                                                List<String> prices = ['Faizabad, Utter Pradesh', 'Lucknow, Utter Pradesh', '20/10/2023', '04:45 PM'];
+                                                List<Icon> cornerTexts = [Icon(Icons.close),Icon(Icons.close),Icon(Icons.close),Icon(Icons.close)];
+                                                List<String> imagePaths = [
+                                                  'assets/Image/Rectangle 1422.png',
+                                                  'assets/Image/Flag.png',
+                                                  'assets/Image/Frame.png',
+                                                  'assets/Image/Watch.png'
+                                                ];
+
+                                                return Card(color: Color(0xFFD5F2C8),shape: RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.only(
+                                                    topLeft: Radius.circular(40),
+                                                    topRight: Radius.circular(40),
+                                                    bottomLeft: Radius.circular(40),
+                                                    bottomRight: Radius.circular(40),
+                                                  ),
+                                                ),
+                                                  child: ListTile(
+                                                    leading: CircleAvatar(
+                                                      radius: 30,
+                                                      backgroundImage: AssetImage(imagePaths[index]),
+                                                    ),
+                                                    title: Text(titles[index]),
+                                                    subtitle: Column(
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                      children: [
+                                                        Text(prices[index],
+                                                            style: TextStyle(
+                                                                fontSize: 12, color: Colors.black87)),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                            ),
+                                          ],
                                         )
                                       ],
                                     ),
@@ -465,6 +530,7 @@ class RideEvee extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 20),
                 Container(
                   width: 488,
                   height: 132,
